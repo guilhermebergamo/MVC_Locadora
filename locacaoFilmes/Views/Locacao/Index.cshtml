@@ -1,0 +1,79 @@
+﻿
+@model List<LocacaoModel>
+
+<div class="container">
+	<h1>Locações</h1>
+	<br>
+	<!-- Botão para abrir o modal de adição de locação -->
+	<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#addLocacaoModal">Adicionar Locação</button>
+
+	<!-- Tabela com a lista de locações -->
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Cliente</th>
+				<th>Filme</th>
+				<th>Data da Locação</th>
+				<th>Data da Devolução</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+	
+
+		<tbody>
+			<!-- Loop para exibir cada locação -->
+			@foreach (var locacao in Model)
+			{
+				<tr>
+					<td>@locacao.Id</td>			
+				</tr>
+						<!-- Botão para abrir o modal de edição da locação -->
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editLocacaoModal_@locacao.Id">
+					Editar
+				</button>
+	
+
+			@*				<!-- Botão para excluir a locação -->
+				<form method="post" action="@Url.Action("Delete", "Locacao", new { id = locacao.Id })" onsubmit="return confirm('Deseja realmente excluir esta locação?')">
+					@csrf
+					@method("DELETE")
+					<button type="submit" class="btn btn-danger btn-sm ml-2">
+						Excluir
+					</button>
+				</form>	*@
+			}
+		</tbody>	
+	</table>
+
+	
+
+				<!-- Modal de edição da locação -->
+		<form action="#" method="POST">
+			<div class="form-group">
+				<label for="cliente">Cliente:</label>
+				<select name="cliente" id="cliente" class="form-control">
+					<option value="1">Cliente 1</option>
+					<option value="2">Cliente 2</option>
+					<option value="3">Cliente 3</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="filme">Filme:</label>
+				<select name="filme" id="filme" class="form-control">
+					<option value="1">Filme 1</option>
+					<option value="2">Filme 2</option>
+					<option value="3">Filme 3</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="data-locacao">Data de locação:</label>
+				<input type="date" id="data-locacao" name="data-locacao" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="data-devolucao">Data de devolução:</label>
+				<input type="date" id="data-devolucao" name="data-devolucao" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>	
+</div>

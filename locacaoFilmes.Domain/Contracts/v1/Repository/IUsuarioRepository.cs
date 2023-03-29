@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace locacaoFilmes.Domain.Contracts.v1
+namespace locacaoFilmes.Domain.Contracts.v1.Repository
 {
     public interface IUsuarioRepository
-    {        
+    {
         Task AddUser(Usuario usuario);
         Task<List<Usuario>> GetAllUsers();
-        Task <Usuario> GetUser(Guid id);
+        Task<Usuario> GetUser(Guid id);
         Task RemoveUser(Guid id);
         Task UpdateUser(Usuario usuario);
-        
+
     }
 }
 

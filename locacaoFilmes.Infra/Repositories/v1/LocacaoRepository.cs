@@ -1,4 +1,4 @@
-﻿using locacaoFilmes.Domain.Contracts.v1;
+﻿using locacaoFilmes.Domain.Contracts.v1.Repository;
 using locacaoFilmes.Domain.Entity.v1;
 using locacaoFilmes.Infra.SqlServer.Context.v1;
 using Microsoft.EntityFrameworkCore;
@@ -32,10 +32,12 @@ namespace locacaoFilmes.Infra.SqlServer.Repositories.v1
 
         }
 
-        public async Task<List<Locacao>> GetAllLocation()
+        public async Task<List<Locacao>> GetAllLocation(Guid id)
         {
-            return await _context.Locacao.ToListAsync();
-        }
+            var teste = Guid.NewGuid();
+            return teste;
+			//return await _context.Locacao.ToListAsync(id);
+		}
 
         public async Task CreateLocation(Locacao location)
         {

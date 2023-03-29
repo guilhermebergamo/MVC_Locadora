@@ -1,10 +1,32 @@
+using locacaoFilmes.Domain.Contracts.v1.Repository;
+using locacaoFilmes.Domain.Contracts.v1.Service;
+using locacaoFilmes.Domain.Services;
+using locacaoFilmes.Infra.SqlServer.Context.v1;
+using locacaoFilmes.Infra.SqlServer.Repositories.v1;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 var services = builder.Services;
+
+
+services.AddTransient<ApplicationContext>();
+
+services.AddTransient<IClienteService, ClienteService>();
+services.AddTransient<IClienteRepository, ClienteRepository>();
+
+services.AddTransient<IFilmeService, FilmeService>();
+services.AddTransient<IFilmeRepository, FilmeRepository>();
+
+services.AddTransient<ILocacaoService, LocacaoService>();
+services.AddTransient<ILocacaoRepository, LocacaoRepository>();
+
+services.AddTransient<IUsuarioService, UsuarioService>();
+services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+
+
 
 var app = builder.Build();
 

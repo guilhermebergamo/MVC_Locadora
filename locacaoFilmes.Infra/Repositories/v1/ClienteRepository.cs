@@ -1,4 +1,4 @@
-﻿using locacaoFilmes.Domain.Contracts.v1;
+﻿using locacaoFilmes.Domain.Contracts.v1.Repository;
 using locacaoFilmes.Domain.Entity.v1;
 using locacaoFilmes.Infra.SqlServer.Context.v1;
 using Microsoft.EntityFrameworkCore;

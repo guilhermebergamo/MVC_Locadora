@@ -8,7 +8,7 @@ namespace locacaoFilmes.Domain.Entity.v1
 {
     public class Locacao
     {
-        public Locacao(Guid id, int idCliente, int idFilme, int idUsuario, DateTime dataLocacao, DateTime dataDevolucao, bool devolvido, Clientes? cliente, ICollection<Filmes>? filmes)
+        public Locacao(Guid id, int idCliente, int idFilme, int idUsuario, DateTime dataLocacao, DateTime dataDevolucao, bool devolvido, Clientes? cliente, ICollection<Filme>? filmes)
         {
             Id = id;
             IdCliente = idCliente;
@@ -30,7 +30,7 @@ namespace locacaoFilmes.Domain.Entity.v1
         public bool Devolvido { get; set; }
 
         public virtual Clientes? Cliente { get; set; }
-        public virtual ICollection<Filmes>? Filmes { get; set; }
+        public virtual ICollection<Filme>? Filmes { get; set; }
 
     }
 }

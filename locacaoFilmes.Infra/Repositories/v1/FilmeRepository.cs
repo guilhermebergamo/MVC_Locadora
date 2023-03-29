@@ -1,4 +1,4 @@
-﻿using locacaoFilmes.Domain.Contracts.v1;
+﻿using locacaoFilmes.Domain.Contracts.v1.Repository;
 using locacaoFilmes.Domain.Entity.v1;
 using locacaoFilmes.Infra.SqlServer.Context.v1;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace locacaoFilmes.Infra.SqlServer.Repositories.v1
 {
-    public class FilmeRepository : IFilmesRepository
+    public class FilmeRepository : IFilmeRepository
     {
         private readonly ApplicationContext _context;
 
@@ -19,12 +19,12 @@ namespace locacaoFilmes.Infra.SqlServer.Repositories.v1
             _context = context;
         }
 
-        public async Task<List<Filmes>> GetAllFilm()
+        public async Task<List<Filme>> GetAllFilm()
         {
             return await _context.Filmes.ToListAsync();
         }
 
-        public async Task<Filmes> GetByIdFilm(Guid id)
+        public async Task<Filme> GetByIdFilm(Guid id)
         {
             var Film =  await _context.Filmes.FindAsync(id);
 
@@ -36,7 +36,7 @@ namespace locacaoFilmes.Infra.SqlServer.Repositories.v1
             return Film;
         }
 
-        public async Task<Filmes> CreateFilm(Filmes filme)
+        public async Task<Filme> CreateFilm(Filme filme)
         {
             if (filme == null)
             {
@@ -49,7 +49,7 @@ namespace locacaoFilmes.Infra.SqlServer.Repositories.v1
             return filme;
         }
 
-        public async Task UpdateFilm(Filmes film)
+        public async Task UpdateFilm(Filme film)
         {
             if (film == null)
             {

@@ -7,7 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Pages\Usuario\usuario.html" />
+    <Compile Remove="Views\Filmes\Index.cshtml.cs" />
+    <Compile Remove="Views\Filmes\Index1.cshtml.cs" />
+    <Compile Remove="Views\Locacao\Index.cshtml.cs" />
+    <Compile Remove="Views\Usuario\Index.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Filmes\_Layout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\locacaoFilmes.Domain\locacaoFilmes.Domain.csproj" />
+    <ProjectReference Include="..\locacaoFilmes.Infra\locacaoFilmes.Infra.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>

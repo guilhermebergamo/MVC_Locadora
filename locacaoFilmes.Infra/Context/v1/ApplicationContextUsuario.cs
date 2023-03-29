@@ -23,7 +23,7 @@ namespace locacaoFilmes.Infra.SqlServer.Context.v1
 
         public DbSet<Clientes> Clientes { get; set; }
 
-        public DbSet<Filmes> Filmes { get; set; }
+        public DbSet<Filme> Filmes { get; set; }
 
         public DbSet<Locacao> Locacao { get; set; }
     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace locacaoFilmes.Domain.Entity.v1
 {
-    public class Filmes
+    public class Filme
     {
-        public Filmes(Guid id, string nome, string genero, int anoLancamento, bool disponivel, ICollection<Locacao>? locacoes)
+        public Filme(Guid id, string nome, string genero, int anoLancamento, bool disponivel, ICollection<Locacao>? locacoes)
         {
             Id = id;
             Nome = nome ?? throw new ArgumentNullException(nameof(nome));
