@@ -19,14 +19,14 @@ namespace locacaoFilmes.Domain.Services
 
         public async Task<Locacao> GetByIdLocation(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _locacaoRepository.GetByIdLocation(id);
+
+            return result;
 
         }
 
-        public async Task<List<Locacao>> GetAllLocation(Guid id)
-        {
-            var result = await _locacaoRepository.GetAllLocation(id);
-
+        public async Task<List<Locacao>> GetAllLocation()
+        {         
 			throw new NotImplementedException();
         }
 

@@ -1,4 +1,5 @@
 ﻿using locacaoFilmes.Domain.Contracts.v1.Service;
+using locacaoFilmes.Domain.Entity.v1;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +15,8 @@ namespace locacaoFilmes.Controllers
 		}
 
 		// GET: LocacaoController1
-		public async ActionResult Index(Guid id)
-        {
-            var result = await _locacaoService.GetAllLocation(id);
-
-
-
+		public async Task<ActionResult<Locacao>> IndexAsync(Guid id)
+        {                    
 			return View();
         }
 
@@ -42,7 +39,7 @@ namespace locacaoFilmes.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -63,7 +60,7 @@ namespace locacaoFilmes.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {
@@ -84,7 +81,7 @@ namespace locacaoFilmes.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(IndexAsync));
             }
             catch
             {

@@ -9,7 +9,7 @@ namespace locacaoFilmes.Domain.Contracts.v1.Repository
 {
     public interface ILocacaoRepository
     {
-        Task<List<Locacao>> GetAllLocation(Guid id);
+        Task<List<Locacao>> GetAllLocation();
         Task<Locacao> GetByIdLocation(Guid id);
         Task CreateLocation(Locacao location);
         Task UpdateLocation(Locacao location);

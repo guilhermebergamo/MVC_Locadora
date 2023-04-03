@@ -32,11 +32,9 @@ namespace locacaoFilmes.Infra.SqlServer.Repositories.v1
 
         }
 
-        public async Task<List<Locacao>> GetAllLocation(Guid id)
-        {
-            var teste = Guid.NewGuid();
-            return teste;
-			//return await _context.Locacao.ToListAsync(id);
+        public async Task<List<Locacao>> GetAllLocation()
+        {          
+			return await _context.Locacao.ToListAsync();
 		}
 
         public async Task CreateLocation(Locacao location)

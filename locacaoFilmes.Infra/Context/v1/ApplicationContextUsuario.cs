@@ -14,9 +14,14 @@ namespace locacaoFilmes.Infra.SqlServer.Context.v1
             _configuration = configuration;
         }
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(_configuration.GetConnectionString("SQLConnection"));
+        //}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("SQLConnection"));
+            optionsBuilder.UseInMemoryDatabase(databaseName: "MemoryDatabase");
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
