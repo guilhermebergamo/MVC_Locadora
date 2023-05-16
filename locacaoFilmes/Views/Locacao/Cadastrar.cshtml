@@ -1,0 +1,28 @@
+﻿
+@model LocacaoModel
+
+<div class="container">
+	<h1>Locações</h1>
+
+				<!-- Modal de edição da locação -->
+	<form action="/locacao/CadastrarLocacao" method="POST">
+			<div class="form-group">
+				<label for="cliente">Cliente:</label>
+			@Html.DropDownList("IdCliente", (List<SelectListItem>)ViewBag.Clientes, "Cliente:", new { @class = "form-control"})
+			</div>
+			<div class="form-group">
+				<label for="filme">Filme:</label>
+				@Html.DropDownList("IdFilme", (List<SelectListItem>)ViewBag.Filmes, "Filme:", new { @class = "form-control"})
+			</div>
+		
+			<div class="form-group">
+				<label for="data-locacao">Data de locação:</label>
+				@Html.TextBox("DataLocacao", Model.DataLocacao, new { @class = "form-control", type = "date"})
+			</div>
+			<div class="form-group">
+				<label for="data-devolucao">Data de devolução:</label>
+				@Html.TextBox("DataDevolucao", Model.DataDevolucao, new { @class = "form-control", type = "date"})
+			</div>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>	
+</div>

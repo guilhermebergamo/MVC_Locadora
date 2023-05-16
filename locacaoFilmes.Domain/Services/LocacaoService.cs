@@ -9,40 +9,72 @@ using System.Threading.Tasks;
 
 namespace locacaoFilmes.Domain.Services
 {
-    public class LocacaoService : ILocacaoService, ILocacaoRepository
+    public class LocacaoService : ILocacaoService
     {
-        private readonly ILocacaoRepository _locacaoRepository;
-        public LocacaoService(ILocacaoRepository locacaoRepository)
-        {
-            _locacaoRepository = locacaoRepository;
-        }
+	
+		private readonly ILocacaoRepository _locacaoRepository;
 
-        public async Task<Locacao> GetByIdLocation(Guid id)
-        {
-            var result = await _locacaoRepository.GetByIdLocation(id);
+		public LocacaoService(ILocacaoRepository locacaoRepository)
+        {			
+			_locacaoRepository = locacaoRepository;
 
-            return result;
+		}
 
-        }
+		public async Task CadastrarLocacao(Locacao locacao)
+		{
+			try
+			{
+				if (locacao is null)
+				{
+					throw new ArgumentNullException(nameof(locacao));
+				}
 
-        public async Task<List<Locacao>> GetAllLocation()
-        {         
-			throw new NotImplementedException();
-        }
+				if (locacao.DataLocacao > locacao.DataDevolucao || locacao.DataLocacao > DateTime.Now)
+				{
+					throw new ArgumentException("Data de locação inválida.");
+				}
 
-        public async Task CreateLocation(Locacao location)
-        {
-            throw new NotImplementedException();
-        }
+				if (locacao.Filmes is null)
+				{
+					throw new ArgumentException("Filme não encontrado.");
+				}
 
-        public async Task UpdateLocation(Locacao location)
-        {
-            throw new NotImplementedException();
-        }
+				if (locacao.Cliente is null)
+				{
+					throw new ArgumentException("Cliente não encontrado.");
+				}
 
-        public async Task DeleteLocation(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+				await _locacaoRepository.CadastrarLocacao(locacao);
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}	
+		}
+
+		//public async Task<Locacao> GetByIdLocation(Guid id)
+  //      {
+  //          var result = await _locacaoRepository.GetByIdLocation(id);
+
+  //          return result;
+
+  //      }
+
+  //      public async Task<List<Locacao>> GetAllLocation()
+  //      {         
+		//	throw new NotImplementedException();
+  //      }
+
+  //      public async Task UpdateLocation(Locacao location)
+  //      {
+  //          throw new NotImplementedException();
+  //      }
+
+  //      public async Task DeleteLocation(Guid id)
+  //      {
+  //          throw new NotImplementedException();
+  //      }
     }
 }

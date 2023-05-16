@@ -1,5 +1,6 @@
 using locacaoFilmes.Domain.Contracts.v1.Repository;
 using locacaoFilmes.Domain.Contracts.v1.Service;
+using locacaoFilmes.Domain.Entity.v1;
 using locacaoFilmes.Domain.Services;
 using locacaoFilmes.Infra.SqlServer.Context.v1;
 using locacaoFilmes.Infra.SqlServer.Repositories.v1;
@@ -11,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var services = builder.Services;
+
+
+services.AddControllers();
 
 services.AddTransient<ApplicationContext>();
 

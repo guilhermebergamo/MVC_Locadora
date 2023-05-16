@@ -5,7 +5,7 @@
 	<h1>Locações</h1>
 	<br>
 	<!-- Botão para abrir o modal de adição de locação -->
-	<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#addLocacaoModal">Adicionar Locação</button>
+	<a class="btn btn-primary mb-2" href="/locacao/Cadastrar" >Adicionar Locação</a>
 
 	<!-- Tabela com a lista de locações -->
 	<table class="table table-striped">
@@ -18,39 +18,6 @@
 				<th>Data da Devolução</th>
 				<th>Ações</th>
 			</tr>
-		</thead>	
-
-		
-	</table>
-
-	
-
-				<!-- Modal de edição da locação -->
-		<form action="#" method="POST">
-			<div class="form-group">
-				<label for="cliente">Cliente:</label>
-				<select name="cliente" id="cliente" class="form-control">
-					<option value="1">Cliente 1</option>
-					<option value="2">Cliente 2</option>
-					<option value="3">Cliente 3</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="filme">Filme:</label>
-				<select name="filme" id="filme" class="form-control">
-					<option value="1">Filme 1</option>
-					<option value="2">Filme 2</option>
-					<option value="3">Filme 3</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="data-locacao">Data de locação:</label>
-				<input type="date" id="data-locacao" name="data-locacao" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="data-devolucao">Data de devolução:</label>
-				<input type="date" id="data-devolucao" name="data-devolucao" class="form-control">
-			</div>
-			<button type="submit" class="btn btn-primary">Salvar</button>
-		</form>	
+		</thead>			
+	</table>					
 </div>

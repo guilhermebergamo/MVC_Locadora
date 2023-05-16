@@ -2,16 +2,16 @@
 
 namespace locacaoFilmes.Models
 {
-    public class LocacaoModel
-    {
-		public Guid Id { get; set; }
-        public int IdCliente { get; set; }
-		public int IdFilme { get; set; }
-		public int IdUsuario { get; set; }
+	public class LocacaoModel
+	{
+		public int IdLocacao { get; set; }
 		public DateTime DataLocacao { get; set; }
 		public DateTime DataDevolucao { get; set; }
-		public bool Devolvido { get; set; }
-		public virtual ICollection<ClienteModel>? ClienteModel { get; set; }
-		public virtual ICollection<FilmeModel>? FilmeModel { get; set; }
+
+		//Propriedade de navegação para a entidade Cliente
+		public virtual ICollection<ClienteModel> Cliente { get; set; }
+
+		//Propriedade de navegação para a entidade Filme
+		public virtual ICollection<Filme> Filmes { get; set; }
 	}
 }

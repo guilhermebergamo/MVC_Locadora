@@ -17,7 +17,7 @@ namespace locacaoFilmes.Domain.Entity.v1
             DataLocacao = dataLocacao;
             DataDevolucao = dataDevolucao;
             Devolvido = devolvido;
-            Cliente = cliente;
+            Cliente = (ICollection<Clientes>?)cliente;
             Filmes = filmes;
         }
 
@@ -28,7 +28,7 @@ namespace locacaoFilmes.Domain.Entity.v1
         public DateTime DataLocacao { get; set; }
         public DateTime DataDevolucao { get; set; }
         public bool Devolvido { get; set; }
-        public virtual Clientes? Cliente { get; set; }
+        public virtual ICollection<Clientes>? Cliente { get; set; }
         public virtual ICollection<Filme>? Filmes { get; set; }
 
     }
