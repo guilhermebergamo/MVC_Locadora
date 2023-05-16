@@ -13,9 +13,6 @@ namespace locacaoFilmes.Controllers
             _contextAccessor = contextAccessor;
         }
 
-
-
-
         // GET: ClienteController1
         public ActionResult Index()
         {

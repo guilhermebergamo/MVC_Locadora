@@ -16,8 +16,9 @@ namespace locacaoFilmes.Controllers
 
 		// GET: LocacaoController1
 		public async Task<ActionResult<Locacao>> IndexAsync(Guid id)
-        {                    
-			return View();
+        {
+            return View();
+
         }
 
         // GET: LocacaoController1/Details/5

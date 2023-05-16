@@ -3,6 +3,7 @@ using locacaoFilmes.Domain.Contracts.v1.Service;
 using locacaoFilmes.Domain.Services;
 using locacaoFilmes.Infra.SqlServer.Context.v1;
 using locacaoFilmes.Infra.SqlServer.Repositories.v1;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var services = builder.Services;
-
 
 services.AddTransient<ApplicationContext>();
 
@@ -25,8 +25,6 @@ services.AddTransient<ILocacaoRepository, LocacaoRepository>();
 
 services.AddTransient<IUsuarioService, UsuarioService>();
 services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-
-
 
 var app = builder.Build();
 
@@ -48,5 +46,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+     name: "clientes",
+     pattern: "Locacao/{action=Index}/{id?}",
+     defaults: new { controller = "Locacao" });
 
 app.Run();

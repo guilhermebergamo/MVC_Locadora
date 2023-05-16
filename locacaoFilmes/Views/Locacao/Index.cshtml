@@ -18,32 +18,9 @@
 				<th>Data da Devolução</th>
 				<th>Ações</th>
 			</tr>
-		</thead>
-	
+		</thead>	
 
-		<tbody>
-			<!-- Loop para exibir cada locação -->
-			@foreach (var locacao in Model)
-			{
-				<tr>
-					<td>@locacao.Id</td>			
-				</tr>
-						<!-- Botão para abrir o modal de edição da locação -->
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editLocacaoModal_@locacao.Id">
-					Editar
-				</button>
-	
-
-			@*				<!-- Botão para excluir a locação -->
-				<form method="post" action="@Url.Action("Delete", "Locacao", new { id = locacao.Id })" onsubmit="return confirm('Deseja realmente excluir esta locação?')">
-					@csrf
-					@method("DELETE")
-					<button type="submit" class="btn btn-danger btn-sm ml-2">
-						Excluir
-					</button>
-				</form>	*@
-			}
-		</tbody>	
+		
 	</table>
 
 	
